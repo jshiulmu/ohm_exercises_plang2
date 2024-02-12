@@ -1,1 +1,28 @@
-
+{
+  "name": "ohm-exercises-plang2",
+  "version": "1.0.0",
+  "description": "ohm exercises for problem 1 of homework 2 compilers spring 2024",
+  "main": "ohm_exercises.js",
+  "type": "module",
+  "scripts": {
+    "test": "c8 mocha",
+    "coverage": "nyc mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshiulmu/ohm_exercises_plang2.git"
+  },
+  "keywords": [
+    "ohm"
+  ],
+  "author": "Jordan Shiu, Jerahmeel Mendoza, Kalif Byrd, Sarron Tadesse, Joanna Estrada",
+  "license": "MIT",
+  "devDependencies": {
+    "c8": "^9.1.0",
+    "mocha": "^10.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jshiulmu/ohm_exercises_plang2/issues"
+  },
+  "homepage": "https://github.com/jshiulmu/ohm_exercises_plang2#readme"
+}
