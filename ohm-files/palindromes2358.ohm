@@ -1,22 +1,23 @@
-palindrome2358 {
-  Program     = Statement+
-  Statement   = id "=" Exp ";"                         --assignment
-              | print Exp ";"                          --print
-  Exp         = Exp ("+" | "-") Term                   --binary
-              | Term
-  Term        = Term ("*" | "/" | "%") Factor          --binary
-              | Factor
-  Factor      = Primary "**" Factor                    --binary
-              | "-" Primary                            --negation
-              | Primary
-  Primary     = id "(" ListOf<Exp, ","> ")"            --call
-              | numeral                                --num
-              | id                                     --id
-              | "(" Exp ")"                            --parens
+Palindrome {
+  Palindrome = Match8Palindrome |Match5Palindrome | Match2Palindrome | Match3Palindrome 
+  Match2Palindrome = "aa" | "bb" | "cc"
+  Match3Palindrome = "aba" | "aca" | "bab" | "bcb" | "cac" | "cbc"
+  Match5Palindrome = "a" "a" "a" "a" "a" | "a" "b" "a" "b" "a"
+             | "a" "c" "a" "c" "a"
+             | "b" "a" "b" "a" "b"
+             | "b" "b" "b" "b" "b"
+             | "b" "c" "b" "c" "b"
+             | "c" "a" "c" "a" "c"
+             | "c" "b" "c" "b" "c"
+             | "c" "c" "c" "c" "c"
 
-  numeral     = digit+ ("." digit+)? (("E" | "e") ("+" | "-")? digit+)?
-  print       = "print" ~idchar
-  idchar      = letter | digit | "_"
-  id          = ~print letter idchar*
-  space      += "//" (~"\n" any)*                      --comment
+  Match8Palindrome = "a" "a" "a" "a" "a" "a" "a" "a"
+             | "a" "b" "a" "a" "a" "a" "b" "a"
+             | "a" "c" "a" "b" "b" "a" "c" "a"
+             | "b" "a" "b" "a" "a" "b" "a" "b"
+             | "b" "b" "b" "b" "b" "b" "b" "b"
+             | "b" "c" "b" "c" "c" "b" "c" "b"
+             | "c" "a" "c" "a" "a" "c" "a" "c"
+             | "c" "b" "c" "b" "b" "c" "b" "c"
+             | "c" "c" "c" "c" "c" "c" "c" "c"
 }
