@@ -1,0 +1,5 @@
+divisibleBy16 {
+    BinaryNumber = (Zero | One)+ ("0" "0" "0" "0")?
+    Zero         = "0"
+    One          = "1"
+}
