@@ -1,0 +1,6 @@
+EightThroughThirtyTwo   {
+    EightThroughThirtyTwo = "8".."9" --singleDigit
+                          | "1".."2" Digit --teensTwenties
+                          | "3" "0".."2" --thirties
+    Digit = digit
+}
