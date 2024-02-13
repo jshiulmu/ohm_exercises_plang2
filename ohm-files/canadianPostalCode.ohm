@@ -1,0 +1,7 @@
+canadianPostalCode {
+      postalCode = forwardAddress " " localDeliveryUnit
+      forwardAddress = letter number letter
+      localDeliveryUnit = number letter  number
+      letter := "A" | "B" | "C" | "E" | "G" | "H" | "J" | "K" | "L" | "M" | "N" | "P" | "R" | "S" | "T" | "V" | "W" | "X" | "Y" | "Z"
+      number = "0".."9"
+}
