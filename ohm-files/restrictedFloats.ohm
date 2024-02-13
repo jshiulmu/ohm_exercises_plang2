@@ -1,0 +1,11 @@
+restrictedFloats {
+  Float = integerPart fractionalPart? exponentPart
+
+  integerPart = digit+
+  fractionalPart = "." digit*
+  exponentPart = "e" sign? exponentDigits
+  exponentDigits = digit digit? digit?  --three
+                 | digit digit          --two
+                 | digit                --one
+  sign = "+" | "-"
+}
