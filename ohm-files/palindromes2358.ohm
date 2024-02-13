@@ -1,10 +1,18 @@
 Palindrome {
-  Palindrome = match8Palindrome | match5Palindrome | match3Palindrome | match2Palindrome
+  Palindrome = match8Palindrome  | match5Palindrome | match3Palindrome |match2Palindrome
+                       
   match2Palindrome = "aa" | "bb" | "cc"
+  
+  match3Palindrome = "aba" | "aca" | "bab" | "bcb" | "cac" | "cbc" | "aaa" | "bbb" | "ccc"
+  
   twoletters = "aa"|"ab"|"ac"|"bb"|"ba"|"bc"|"cc"|"ca"|"cb"
-  match3Palindrome = "bab"|"cac"|"aba"|"cbc"|"aca"|"bcb"
-  match5Palindrome = twoletters letters twoletters
-  fourletters= twoletters twoletters
-  match8Palindrome = fourletters letters fourletters
-  letters = "a" | "b" | "c"
+  
+  match5Palindrome = "a" middle3 "a"
+                   | "b" middle3 "b"
+                   | "c" middle3 "c"
+                   
+  match8Palindrome =  twoletters middle4 twoletters                
+  middle3 = "aaa" | "bbb" | "ccc" | "aba" | "aca" | "bab" | "bcb" | "cac" | "cbc"
+  
+  middle4 = "aaaa" | "bbbb" | "cccc" | "abba" | "acca" | "baab" | "bccb" | "caac" | "cbbc"
 }
