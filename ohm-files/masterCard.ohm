@@ -1,0 +1,5 @@
+MasterCard {
+  MasterCard = ("51" | "52" | "53" | "54" | "55") Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit  --fourteen
+             | "2" ("2".."7") Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit Digit --twelve
+  Digit = digit
+}
