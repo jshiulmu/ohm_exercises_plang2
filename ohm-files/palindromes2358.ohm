@@ -1,23 +1,10 @@
 Palindrome {
-  Palindrome = Match8Palindrome |Match5Palindrome | Match2Palindrome | Match3Palindrome 
-  Match2Palindrome = "aa" | "bb" | "cc"
-  Match3Palindrome = "aba" | "aca" | "bab" | "bcb" | "cac" | "cbc"
-  Match5Palindrome = "a" "a" "a" "a" "a" | "a" "b" "a" "b" "a"
-             | "a" "c" "a" "c" "a"
-             | "b" "a" "b" "a" "b"
-             | "b" "b" "b" "b" "b"
-             | "b" "c" "b" "c" "b"
-             | "c" "a" "c" "a" "c"
-             | "c" "b" "c" "b" "c"
-             | "c" "c" "c" "c" "c"
-
-  Match8Palindrome = "a" "a" "a" "a" "a" "a" "a" "a"
-             | "a" "b" "a" "a" "a" "a" "b" "a"
-             | "a" "c" "a" "b" "b" "a" "c" "a"
-             | "b" "a" "b" "a" "a" "b" "a" "b"
-             | "b" "b" "b" "b" "b" "b" "b" "b"
-             | "b" "c" "b" "c" "c" "b" "c" "b"
-             | "c" "a" "c" "a" "a" "c" "a" "c"
-             | "c" "b" "c" "b" "b" "c" "b" "c"
-             | "c" "c" "c" "c" "c" "c" "c" "c"
+  Palindrome = match8Palindrome | match5Palindrome | match3Palindrome | match2Palindrome
+  match2Palindrome = "aa" | "bb" | "cc"
+  twoletters = "aa"|"ab"|"ac"|"bb"|"ba"|"bc"|"cc"|"ca"|"cb"
+  match3Palindrome = "bab"|"cac"|"aba"|"cbc"|"aca"|"bcb"
+  match5Palindrome = twoletters letters twoletters
+  fourletters= twoletters twoletters
+  match8Palindrome = fourletters letters fourletters
+  letters = "a" | "b" | "c"
 }
