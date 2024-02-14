@@ -1,0 +1,12 @@
+pthonStringLiteral {
+  pthonStringLiteral = StringPrefix? (ShortString | LongString)
+  StringPrefix = "r" | "u" | "R" | "U" | "f" | "F"
+               | "fr" | "Fr" | "fR" | "FR" | "rf" | "rF" | "Rf" | "RF"
+  ShortString = "'" ShortStringItem* "'" | "\"" ShortStringItem* "\""
+  LongString = "'''" LongStringItem* "'''" | "\"\"\"" LongStringItem* "\"\"\""
+  ShortStringItem = ShortStringChar | StringEscapeSeq
+  LongStringItem = LongStringChar | StringEscapeSeq
+  ShortStringChar = ~"\\" ~"\n" ~"'" ~"\"" any
+  LongStringChar = ~"\\" any
+  StringEscapeSeq = "\\" any
+}
