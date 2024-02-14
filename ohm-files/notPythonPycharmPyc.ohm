@@ -4,5 +4,5 @@
     ExcludeWithWord = ExcludeWords Letters+
     Multiexclude = ExcludeWords ExcludeWords+
     ExcludeWords = "pycharm"| "python" | "pyc"
-    Letters = "a".."z" | "A".."Z" | "ñ".."ÿ" | "\uD83C" .. "\uD83E" --emoji 
+    Letters = "a".."z" | "A".."Z" | "ñ".."ÿ" | "\uD83C" .. "\uD83E" --unicode 
 }
