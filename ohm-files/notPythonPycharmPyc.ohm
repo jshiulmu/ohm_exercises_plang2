@@ -1,0 +1,8 @@
+ NotPythonPycharmPyc { 
+	NotPythonPycharmPyc = ExcludeWithWord | ~ExcludeWords Words | Multiexclude | ""
+    Words = Letters+ | ExcludeWithWord | Multiexclude 
+    ExcludeWithWord = ExcludeWords Letters+
+    Multiexclude = ExcludeWords ExcludeWords+
+    ExcludeWords = "python" | "pyc" | "pycharm"
+    Letters = "a".."z" | "A".."Z" | "ñ".."ÿ" | "\uD83C" .. "\uD83E" --emoji 
+}
