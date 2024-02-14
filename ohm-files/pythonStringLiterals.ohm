@@ -1,5 +1,5 @@
-pthonStringLiteral {
-  pthonStringLiteral = StringPrefix? (ShortString | LongString)
+pythonStringLiteral {
+  StringLiteral = StringPrefix? (ShortString | LongString)
   StringPrefix = "r" | "u" | "R" | "U" | "f" | "F"
                | "fr" | "Fr" | "fR" | "FR" | "rf" | "rF" | "Rf" | "RF"
   ShortString = "'" ShortStringItem* "'" | "\"" ShortStringItem* "\""
