@@ -1,6 +1,6 @@
 notThreeEndinginOO { 
 	NotThreeEndinginOO = ~Exclude Let*
-    Exclude = Let DoubleO
+    Exclude = Let DoubleO ~(Let+)
     DoubleO = "oO" | "Oo" | "OO" | "oo" 
     Let = "a".."z" | "A".."Z" | "ñ".."ÿ" | "\uD83C" .. "\uD83E" --emoji 
 }
