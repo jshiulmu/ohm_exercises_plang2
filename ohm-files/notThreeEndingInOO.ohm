@@ -1,0 +1,6 @@
+notThreeEndinginOO { 
+	notThreeEndinginOO = let* ~doubleO --exclusion 
+    				   | let* --otherwords 
+    doubleO = "oO" | "Oo" | "OO" | "oo" 
+    let = "a".."z" | "A".."Z" | "ñ".."ÿ" | "\uD83C" .. "\uD83E" --emoji 
+}
