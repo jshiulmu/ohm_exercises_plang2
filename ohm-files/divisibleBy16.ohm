@@ -1,7 +1,5 @@
 divisibleBy16 {
-  BinaryNumber = Case2 | Case1 | Zero+
-  Case1 = "0" "0" (Zero | One)* ("0000")
-  Case2 = (Zero | One)+ ("0000")
-  Zero = "0"
-  One = "1"
+  BinaryNumber = Case | "0"+
+  Case = BinaryDigit* "0000"
+  BinaryDigit = ~("0000" end) "0" | "1"
 }
