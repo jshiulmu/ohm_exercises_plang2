@@ -9,7 +9,9 @@ Problem2 {
 
   Parameters = id ("," id)*
 
-  Body = Exp (";" Exp)* "end"
+  Body = Exp (";" Exp)*"end"
+  
+  ConditionalExp = Exp "if" Exp "else" Exp
 
   numericLiteral  = digits ("." digits)? exponentPart?
   digits          = digit+
@@ -24,7 +26,7 @@ Problem2 {
 
 
   Exp       = Exp1 "?" Exp1 ":" Exp                         -- ternary
-            | Exp1
+            | ConditionalExp | Exp1
   Exp1      = Exp1 ("+" | "-") Exp2                         -- binary
             | Exp2                              
             
