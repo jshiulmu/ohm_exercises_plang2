@@ -1,0 +1,51 @@
+Problem2 {
+  
+
+  Program = FunctionDeclaration* Exp
+
+  FunctionDeclaration = "func" id "(" Parameters ")" Body
+
+  id = (letter | "@") (letter | digit | "_" | "@" | "$")*
+
+  Parameters = id ("," id)*
+
+  Body = Exp (";" Exp)* "end"
+
+  numericLiteral  = digits ("." digits)? exponentPart?
+  digits          = digit+
+  exponentPart    = "e" "-"? digits
+
+  stringLiteral   = "\"" (char | escapeSequence)* "\""
+  char            = ~"\"" any // Any character except double quote
+  escapeSequence  = "\\'"    // Single quote
+                  | "\\\""   // Double quote
+                  | "\\n"    // New line
+                  | "\\\\"   // Backslash
+
+
+  Exp       = Exp1 "?" Exp1 ":" Exp                         -- ternary
+            | Exp1
+  Exp1      = Exp1 "||" Exp2                                -- binary
+            | Exp2
+  Exp2      = Exp2 "&&" Exp3                                -- binary
+            | Exp3
+  Exp3      = "-"? Exp4
+  Exp4      = Exp4 ("+" | "-") Exp5                         -- binary
+            | Exp5
+  Exp5      = Exp5 ("*" | "/" | "%") Exp6                   -- binary
+            | Exp6
+  Exp6      = Exp7 "**" Exp6                                -- binary
+            | Exp7
+  Exp7      = numericLiteral
+            | Call                                          -- call
+            | stringLiteral
+            | id                                            -- id
+            | "(" Exp ")"                                 		 -- parens
+
+  
+  func = "func"
+  Call    = id "(" Arguments? ")"
+  Arguments       = Exp ("," Exp)*
+
+  
+}
