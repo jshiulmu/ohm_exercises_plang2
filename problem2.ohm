@@ -25,24 +25,25 @@ Problem2 {
 
   Exp       = Exp1 "?" Exp1 ":" Exp                         -- ternary
             | Exp1
-  Exp1      = Exp1 "||" Exp2                                -- binary
-            | Exp2
-  Exp2      = Exp2 "&&" Exp3                                -- binary
-            | Exp3
-  Exp3      = "-"? Exp4
-  Exp4      = Exp4 ("+" | "-") Exp5                         -- binary
+  Exp1      = Exp1 ("+" | "-") Exp2                         -- binary
+            | Exp2                              
+            
+  Exp2      = "-"? Exp3
+  Exp3      = Exp4 "!"?
+  
+  Exp4      = Exp4 ("*" | "/" | "%") Exp5                   -- binary
             | Exp5
-  Exp5      = Exp5 ("*" | "/" | "%") Exp6                   -- binary
+  Exp5      = Exp6 "**" Exp5                                -- binary
             | Exp6
-  Exp6      = Exp7 "**" Exp6                                -- binary
-            | Exp7
-  Exp7      = numericLiteral
+  Exp6      = numericLiteral
             | Call                                          -- call
             | stringLiteral
             | id                                            -- id
             | "(" Exp ")"                                 		 -- parens
 
-  
+  if = "if" ~idChar
+  else = "else" ~idChar
+  idChar = alnum | "_" | "@" | "$"
   func = "func"
   Call    = id "(" Arguments? ")"
   Arguments       = Exp ("," Exp)*
