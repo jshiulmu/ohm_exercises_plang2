@@ -6,16 +6,19 @@ Problem2 {
   FunctionDeclaration = "func" id "(" Parameters ")" Body
 
   id = (letter | "@") (letter | digit | "_" | "@" | "$")*
+  
 
   Parameters = id ("," id)*
 
   Body = Exp (";" Exp)*"end"
   
   ConditionalExp = Exp "if" Exp "else" Exp
+  
+  space += "--" any* ~"\n" "\n"  --Comment 
 
   numericLiteral  = digits ("." digits)? exponentPart?
   digits          = digit+
-  exponentPart    = "e" "-"? digits
+  exponentPart    = ("e"|"E") "-"? digits
 
   stringLiteral   = "\"" (char | escapeSequence)* "\""
   char            = ~"\"" any // Any character except double quote
@@ -23,20 +26,25 @@ Problem2 {
                   | "\\\""   // Double quote
                   | "\\n"    // New line
                   | "\\\\"   // Backslash
+                  | "\\u{" hex hex hex hex hex hex "}"    -- hex
+  hex = hexDigit
 
-
+ 
   Exp       = Exp1 "?" Exp1 ":" Exp                         -- ternary
             | ConditionalExp | Exp1
   Exp1      = Exp1 ("+" | "-") Exp2                         -- binary
             | Exp2                              
             
-  Exp2      = "-"? Exp3
-  Exp3      = Exp4 "!"?
+ 
   
-  Exp4      = Exp4 ("*" | "/" | "%") Exp5                   -- binary
-            | Exp5
-  Exp5      = Exp6 "**" Exp5                                -- binary
-            | Exp6
+  Exp2      = Exp2 ("*" | "/" | "%") Exp3                   -- binary
+            | Exp3
+  Exp3      = Exp4 "**" Exp3                                -- binary
+            | Exp4
+            
+  Exp4      = "-"? Exp5
+            
+  Exp5      = Exp6 "!"?
   Exp6      = numericLiteral
             | Call                                          -- call
             | stringLiteral
